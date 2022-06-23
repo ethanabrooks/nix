@@ -11,7 +11,26 @@
     pkgs.htop
     pkgs.fortune
     pkgs.tmux
+    pkgs.vim
+    pkgs.neovim
+    pkgs.git
   ];
+
+  # Raw configuration files
+  home.file.".vimrc".source = ./vimrc;
+
+  programs.git = {
+    enable = true;
+    userName = "ethanabrooks";
+    userEmail = "ethanabrooks@gmail.com";
+    aliases = {
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        br = "branch";
+        co = "checkout";
+        cm = "commit -am";
+        df = "!git reset && git diff";
+    };
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -26,21 +45,13 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.neovim = {
-    enable = true;
-  };
-
-  programs.vim = {
-    enable = true;
-  };
-
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.magit
-    ];
-  };
+  #programs.emacs = {
+    #enable = true;
+    #extraPackages = epkgs: [
+      #epkgs.nix-mode
+      #epkgs.magit
+    #];
+  #};
 
   services.gpg-agent = {
     enable = true;
