@@ -9,11 +9,11 @@
   # Packages that should be installed to the user profile.
   home.packages = [
     pkgs.htop
-    pkgs.fortune
     pkgs.tmux
     pkgs.vim
     pkgs.neovim
-    pkgs.git
+    pkgs.ncdu
+    pkgs.poetry
   ];
 
   # Raw configuration files
@@ -44,14 +44,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  #programs.emacs = {
-    #enable = true;
-    #extraPackages = epkgs: [
-      #epkgs.nix-mode
-      #epkgs.magit
-    #];
-  #};
 
   services.gpg-agent = {
     enable = true;
