@@ -76,20 +76,15 @@
       enable = true;
       enableSyntaxHighlighting = true;
       history.size = 10000;
-      #oh-my-zsh.enable = true; # sane defaults
+      initExtra =  builtins.readFile ./init.zsh;
       prezto = {
         enable = true;
         prompt.theme = "pure";
+        tmux.itermIntegration = true;
       };
       shellAliases = {
         ll = "ls -l";
         update = "home-manager switch -b backup";
-      };
-      zplug = {
-        enable = true;
-        plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-        ];
       };
     };
   };
