@@ -5,8 +5,6 @@
   # paths it should manage.
   home = {
     # Raw configuration files
-    #file.".vimrc".source = ./vimrc;
-
     homeDirectory = "/home/ethanbro";
 
     # Packages that should be installed to the user profile.
@@ -17,11 +15,9 @@
       nix
       nixfmt
       poetry
-      pure-prompt
       ripgrep
       tmux
       tree
-      zsh
     ];
 
     sessionVariables.EDITOR = "nvim";
