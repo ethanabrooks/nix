@@ -5,18 +5,17 @@
   # paths it should manage.
   home = {
     # Raw configuration files
-    file.".vimrc".source = ./vimrc;
+    #file.".vimrc".source = ./vimrc;
 
     homeDirectory = "/home/ethanbro";
 
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       htop
-      fzf
       mosh
       ncdu
       nix
-      nixpkgs-fmt
+      nixfmt
       poetry
       pure-prompt
       ripgrep
@@ -41,12 +40,25 @@
   };
 
   programs = {
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     git = {
+      difftastic.enable = true;
       enable = true;
       userName = "ethanabrooks";
       userEmail = "ethanabrooks@gmail.com";
       aliases = {
-        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        lg =
+          "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
         br = "branch";
         co = "checkout";
         cm = "commit -am";
@@ -54,33 +66,38 @@
       };
     };
 
+    gitui = { enable = true; };
+
     # Let Home Manager install and manage itself.
-    home-manager = {
-      enable = true;
-    };
+    home-manager = { enable = true; };
 
     neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
-      extraConfig = builtins.readFile ./init.vim;
+      extraConfig = builtins.readFile ./vimrc;
       plugins = with pkgs.vimPlugins; [
         ale
+        fzf-vim
         gruvbox
         nerdcommenter
         vim-nix
+        vim-surround
+        lightline-vim
       ];
     };
 
     zsh = {
+      autocd = true;
       enable = true;
       enableSyntaxHighlighting = true;
-      history.size = 10000;
-      initExtra =  builtins.readFile ./init.zsh;
+      enableAutosuggestions = true;
+      initExtra = builtins.readFile ./zshrc;
       prezto = {
+        editor.keymap = "vi";
         enable = true;
         prompt.theme = "pure";
-        tmux.itermIntegration = true;
+        python.virtualenvAutoSwitch = true;
       };
       shellAliases = {
         ll = "ls -l";
