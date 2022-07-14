@@ -8,17 +8,7 @@
     homeDirectory = "/home/ethanbro";
 
     # Packages that should be installed to the user profile.
-    packages = with pkgs; [
-      htop
-      mosh
-      ncdu
-      nix
-      nixfmt
-      poetry
-      ripgrep
-      tmux
-      tree
-    ];
+    packages = with pkgs; [ htop mosh ncdu nix nixfmt poetry ripgrep tree ];
 
     sessionVariables.EDITOR = "nvim";
 
@@ -83,6 +73,8 @@
       ];
     };
 
+    tmux.enable = true;
+
     zsh = {
       autocd = true;
       enable = true;
@@ -99,6 +91,7 @@
         ll = "ls -l";
         update = "home-manager switch -b backup";
       };
+      localVariables.TERM = "xterm-256color";
     };
   };
 
