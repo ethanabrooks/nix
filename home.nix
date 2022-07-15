@@ -16,6 +16,7 @@
       nixFlakes
       nixfmt
       poetry
+      python39
       ripgrep
       tree
     ];
