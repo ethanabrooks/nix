@@ -8,9 +8,19 @@
     homeDirectory = "/home/ethanbro";
 
     # Packages that should be installed to the user profile.
-    packages = with pkgs; [ htop mosh ncdu nix nixfmt poetry ripgrep tree ];
+    packages = with pkgs; [
+      htop
+      mosh
+      ncdu
+      nix
+      nixFlakes
+      nixfmt
+      poetry
+      ripgrep
+      tree
+    ];
 
-    sessionVariables.EDITOR = "nvim";
+    sessionVariables = { EDITOR = "nvim"; };
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -91,7 +101,7 @@
         ll = "ls -l";
         update = "home-manager switch -b backup";
       };
-      localVariables.TERM = "xterm-256color";
+      localVariables = { TERM = "xterm-256color"; };
     };
   };
 
