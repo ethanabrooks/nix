@@ -93,6 +93,7 @@
       enable = true;
       enableSyntaxHighlighting = true;
       enableAutosuggestions = true;
+      history.path = "~/.zsh_history";
       initExtra = builtins.readFile ./zshrc;
       oh-my-zsh = {
         enable = true;
@@ -102,7 +103,6 @@
         editor.keymap = "vi";
         enable = true;
         prompt.theme = "pure";
-        python.virtualenvAutoSwitch = true;
       };
       shellAliases = {
         ll = "ls -l";
