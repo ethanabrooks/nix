@@ -94,6 +94,10 @@
       enableSyntaxHighlighting = true;
       enableAutosuggestions = true;
       initExtra = builtins.readFile ./zshrc;
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" ];
+      };
       prezto = {
         editor.keymap = "vi";
         enable = true;
