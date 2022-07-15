@@ -1,11 +1,8 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, lib, ... }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    # Raw configuration files
-    homeDirectory = "/home/ethanbro";
+    homeDirectory = builtins.getEnv "HOME";
 
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
@@ -35,6 +32,10 @@
 
     username = "ethanbro";
   };
+
+  imports = with lib;
+    optionals (builtins.currentSystem == "x86_64-linux") [ ./linux.nix ]
+    ++ optionals (builtins.currentSystem == "x86_64-darwin") [ ./darwin.nix ];
 
   programs = {
 
@@ -105,11 +106,5 @@
       };
       localVariables = { TERM = "xterm-256color"; };
     };
-  };
-
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
   };
 }
