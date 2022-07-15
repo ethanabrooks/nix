@@ -33,82 +33,79 @@
     username = "ethanbro";
   };
 
-  imports = with lib;
-    optionals (builtins.currentSystem == "x86_64-linux") [ ./linux.nix ]
-    ++ optionals (builtins.currentSystem == "x86_64-darwin") [ ./darwin.nix ];
+  imports = lib.lists.flatten [
+    (lib.optionals (builtins.currentSystem == "x86_64-linux") [ ./linux.nix ])
+    (lib.optionals (builtins.currentSystem == "x86_64-darwin") [ ./darwin.nix ])
+  ];
 
-  programs = {
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.git = {
+    difftastic.enable = true;
+    enable = true;
+    userName = "ethanabrooks";
+    userEmail = "ethanabrooks@gmail.com";
+    aliases = {
+      lg =
+        "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      br = "branch";
+      co = "checkout";
+      cm = "commit -am";
+      df = "!git reset && git diff";
     };
+  };
 
-    fzf = {
+  programs.gitui = { enable = true; };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager = { enable = true; };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    extraConfig = builtins.readFile ./vimrc;
+    plugins = with pkgs.vimPlugins; [
+      ale
+      fzf-vim
+      gruvbox
+      nerdcommenter
+      vim-nix
+      vim-surround
+      lightline-vim
+    ];
+  };
+
+  programs.tmux.enable = true;
+
+  programs.zsh = {
+    autocd = true;
+    enable = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    initExtra = builtins.readFile ./zshrc;
+    oh-my-zsh = {
       enable = true;
-      enableZshIntegration = true;
+      plugins = [ "git" ];
     };
-
-    git = {
-      difftastic.enable = true;
+    prezto = {
+      editor.keymap = "vi";
       enable = true;
-      userName = "ethanabrooks";
-      userEmail = "ethanabrooks@gmail.com";
-      aliases = {
-        lg =
-          "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-        br = "branch";
-        co = "checkout";
-        cm = "commit -am";
-        df = "!git reset && git diff";
-      };
+      prompt.theme = "pure";
     };
-
-    gitui = { enable = true; };
-
-    # Let Home Manager install and manage itself.
-    home-manager = { enable = true; };
-
-    neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      extraConfig = builtins.readFile ./vimrc;
-      plugins = with pkgs.vimPlugins; [
-        ale
-        fzf-vim
-        gruvbox
-        nerdcommenter
-        vim-nix
-        vim-surround
-        lightline-vim
-      ];
+    shellAliases = {
+      ll = "ls -l";
+      update = "home-manager switch -b backup";
     };
-
-    tmux.enable = true;
-
-    zsh = {
-      autocd = true;
-      enable = true;
-      enableSyntaxHighlighting = true;
-      enableAutosuggestions = true;
-      history.path = "~/.zsh_history";
-      initExtra = builtins.readFile ./zshrc;
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" ];
-      };
-      prezto = {
-        editor.keymap = "vi";
-        enable = true;
-        prompt.theme = "pure";
-      };
-      shellAliases = {
-        ll = "ls -l";
-        update = "home-manager switch -b backup";
-      };
-      localVariables = { TERM = "xterm-256color"; };
-    };
+    localVariables = { TERM = "xterm-256color"; };
   };
 }
