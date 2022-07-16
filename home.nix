@@ -86,7 +86,10 @@
     ];
   };
 
-  programs.tmux.enable = true;
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./tmux.conf;
+  };
 
   programs.zsh = {
     autocd = true;
