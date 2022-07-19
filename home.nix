@@ -1,4 +1,19 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  vim-snazzy = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-snazzy";
+    src = pkgs.fetchFromGitHub {
+      owner = "connorholyday";
+      repo = "vim-snazzy";
+      rev = "d979964b4dc0d6860f0803696c348c5a912afb9e";
+      sha256 = "sha256-6YZUHOqqNP6V4kUEd24ClyMJfckvkQTYRtcVsBsiNSk=";
+    };
+  };
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
@@ -19,7 +34,7 @@
       tree
     ];
 
-    sessionVariables = { EDITOR = "nvim"; };
+    sessionVariables = {EDITOR = "nvim";};
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -35,8 +50,8 @@
   };
 
   imports = lib.lists.flatten [
-    (lib.optionals (builtins.currentSystem == "x86_64-linux") [ ./linux.nix ])
-    (lib.optionals (builtins.currentSystem == "x86_64-darwin") [ ./darwin.nix ])
+    (lib.optionals (builtins.currentSystem == "x86_64-linux") [./linux.nix])
+    (lib.optionals (builtins.currentSystem == "x86_64-darwin") [./darwin.nix])
   ];
 
   programs.direnv = {
@@ -56,8 +71,7 @@
     userName = "ethanabrooks";
     userEmail = "ethanabrooks@gmail.com";
     aliases = {
-      lg =
-        "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       br = "branch";
       co = "checkout";
       cm = "commit -am";
@@ -65,10 +79,10 @@
     };
   };
 
-  programs.gitui = { enable = true; };
+  programs.gitui = {enable = true;};
 
   # Let Home Manager install and manage itself.
-  programs.home-manager = { enable = true; };
+  programs.home-manager = {enable = true;};
 
   programs.neovim = {
     enable = true;
@@ -78,11 +92,27 @@
     plugins = with pkgs.vimPlugins; [
       ale
       fzf-vim
-      gruvbox
+      #lightline-vim
+      #lightline-gruvbox-vim
       nerdcommenter
+      null-ls-nvim
+      nvim-lspconfig
+      python-syntax
+      vim-cute-python
       vim-nix
+      vim-python-pep8-indent
       vim-surround
-      lightline-vim
+
+      gruvbox
+      onehalf
+      papercolor-theme
+      tender-vim
+      nord-vim
+      vim-one
+      oceanic-next
+      ayu-vim
+      palenight-vim
+      vim-snazzy
     ];
   };
 
@@ -99,7 +129,7 @@
     initExtra = builtins.readFile ./zshrc;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
     prezto = {
       editor.keymap = "vi";
@@ -110,6 +140,6 @@
       ll = "ls -l";
       update = "home-manager switch -b backup";
     };
-    localVariables = { TERM = "xterm-256color"; };
+    localVariables = {TERM = "xterm-256color";};
   };
 }
