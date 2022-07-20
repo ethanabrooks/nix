@@ -1,16 +1,17 @@
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalflight
+colorscheme OceanicNext
+
 " If you have vim >=8.0 or Neovim >= 0.1.5
 if (has("termguicolors"))
  set termguicolors
 endif
-let g:oceanic_next_terminal_bold = 1
-  let g:oceanic_next_terminal_italic = 1
-  colorscheme OceanicNext
 
-let g:lightline.colorscheme = 'gruvbox'
+
+let g:lightline = { 'colorscheme': 'oceanicnext' }
+let g:oceanic_next_terminal_bold = 1
+let g:python_highlight_all = 1
 
 let mapleader = " "
 

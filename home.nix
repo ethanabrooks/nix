@@ -3,17 +3,9 @@
   pkgs,
   lib,
   ...
-}: let
-  vim-snazzy = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-snazzy";
-    src = pkgs.fetchFromGitHub {
-      owner = "connorholyday";
-      repo = "vim-snazzy";
-      rev = "d979964b4dc0d6860f0803696c348c5a912afb9e";
-      sha256 = "sha256-6YZUHOqqNP6V4kUEd24ClyMJfckvkQTYRtcVsBsiNSk=";
-    };
-  };
-in {
+}: {
+  fonts.fontconfig.enable = true;
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
@@ -27,7 +19,6 @@ in {
       ncdu
       nix
       nixFlakes
-      nixfmt
       poetry
       python39
       ripgrep
@@ -92,27 +83,16 @@ in {
     plugins = with pkgs.vimPlugins; [
       ale
       fzf-vim
-      #lightline-vim
-      #lightline-gruvbox-vim
       nerdcommenter
       null-ls-nvim
       nvim-lspconfig
+      oceanic-next
       python-syntax
+      lightline-vim
       vim-cute-python
       vim-nix
       vim-python-pep8-indent
       vim-surround
-
-      gruvbox
-      onehalf
-      papercolor-theme
-      tender-vim
-      nord-vim
-      vim-one
-      oceanic-next
-      ayu-vim
-      palenight-vim
-      vim-snazzy
     ];
   };
 
