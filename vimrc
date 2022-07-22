@@ -65,12 +65,12 @@ set textwidth=0 wrapmargin=0 " prevent line splitting https://stackoverflow.com/
 
 "https://realpython.com/vim-and-python-a-match-made-in-heaven/#python-indentation
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
     \ set fileformat=unix
 
 set noswapfile
