@@ -89,6 +89,7 @@
       oceanic-next
       python-syntax
       lightline-vim
+      supertab
       vim-cute-python
       vim-nix
       vim-python-pep8-indent

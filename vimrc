@@ -38,7 +38,8 @@ local null_ls = require("null-ls")
 
 -- register any number of sources simultaneously
 local sources = {
-    null_ls.builtins.formatting.alejandra
+    null_ls.builtins.formatting.alejandra,
+    null_ls.builtins.formatting.black,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -81,6 +82,11 @@ set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 set number
 set numberwidth=1
 set complete+=kspell         " Autocomplete with dictionary words when spell check is on
+
+"python folding: https://stackoverflow.com/a/360634/4176597
+set foldmethod=indent
+nnoremap <space> za
+vnoremap <space> zf
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
