@@ -61,6 +61,7 @@
     enable = true;
     userName = "ethanabrooks";
     userEmail = "ethanabrooks@gmail.com";
+    extraConfig.core.editor = "vim";
     aliases = {
       lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
       br = "branch";
