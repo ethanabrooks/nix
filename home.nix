@@ -122,6 +122,10 @@
       ll = "ls -l";
       update = "home-manager switch -b backup";
     };
-    localVariables = {TERM = "xterm-256color";};
+    localVariables = {
+      TERM = "xterm-256color";
+      PYTHONBREAKPOINT = "ipdb.set_trace";
+      DOCKERBUILDKIT = 1;
+    };
   };
 }
