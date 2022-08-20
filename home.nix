@@ -19,6 +19,7 @@
       ncdu
       nix
       nixFlakes
+      nodejs
       poetry
       python39
       ripgrep
@@ -57,7 +58,7 @@
   };
 
   programs.git = {
-    difftastic.enable = true;
+    #difftastic.enable = true;
     enable = true;
     userName = "ethanabrooks";
     userEmail = "ethanabrooks@gmail.com";
@@ -83,6 +84,7 @@
     extraConfig = builtins.readFile ./vimrc;
     plugins = with pkgs.vimPlugins; [
       ale
+      copilot-vim
       fzf-vim
       nerdcommenter
       null-ls-nvim
@@ -96,6 +98,7 @@
       vim-python-pep8-indent
       vim-surround
     ];
+    withNodeJs = true;
   };
 
   programs.tmux = {
