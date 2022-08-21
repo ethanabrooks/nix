@@ -127,7 +127,6 @@
     };
     localVariables = {
       TERM = "xterm-256color";
-      PYTHONBREAKPOINT = "ipdb.set_trace";
       DOCKERBUILDKIT = 1;
     };
   };

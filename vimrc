@@ -25,14 +25,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-			\ 'python': ['black'], 
-			\ 'json': ['prettier'], 
-			\ 'yaml': ['prettier'],
-			\ }
-			"\ 'nix': ['nixfmt'],
-
 lua << EOF
 local null_ls = require("null-ls")
 
