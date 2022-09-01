@@ -3,7 +3,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  ifDarwin = pkgs.lib.lists.optionals pkgs.stdenv.isDarwin;
+in {
   fonts.fontconfig.enable = true;
 
   # Home Manager needs a bit of information about you and the
@@ -12,19 +14,21 @@
     homeDirectory = builtins.getEnv "HOME";
 
     # Packages that should be installed to the user profile.
-    packages = with pkgs; [
-      alejandra
-      htop
-      mosh
-      ncdu
-      nix
-      nixFlakes
-      nodejs
-      poetry
-      python39
-      ripgrep
-      tree
-    ];
+    packages = with pkgs;
+      [
+        alejandra
+        htop
+        mosh
+        ncdu
+        nix
+        nixFlakes
+        nodejs
+        poetry
+        python39
+        ripgrep
+        tree
+      ]
+      ++ ifDarwin [hasura-cli iterm2 slack];
 
     sessionVariables = {EDITOR = "nvim";};
 
@@ -104,6 +108,10 @@
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
+  };
+
+  programs.vscode = {
+    enable = pkgs.stdenv.isDarwin;
   };
 
   programs.zsh = {
