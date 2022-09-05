@@ -135,7 +135,7 @@ in {
     };
     localVariables = {
       TERM = "xterm-256color";
-      DOCKERBUILDKIT = 1;
+      DOCKER_BUILDKIT = 1;
     };
   };
 }
