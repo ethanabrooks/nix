@@ -17,6 +17,7 @@ in {
     packages = with pkgs;
       [
         alejandra
+        black
         htop
         mosh
         ncdu
