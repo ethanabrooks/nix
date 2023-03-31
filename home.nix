@@ -9,6 +9,12 @@
 in {
   fonts.fontconfig.enable = true;
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "vscode"
+      "slack"
+    ];
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
