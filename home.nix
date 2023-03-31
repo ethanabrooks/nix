@@ -109,6 +109,7 @@ in {
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
+    historyLimit = 10000;
   };
 
   programs.vscode = {
