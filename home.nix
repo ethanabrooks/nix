@@ -29,13 +29,7 @@ in {
         ripgrep
         tree
       ]
-      ++ ifDarwin [
-        hasura-cli
-        iterm2
-        python39Packages.pygments # required for minted package 🙄
-        slack
-        texlive.combined.scheme-full
-      ];
+      ++ ifDarwin [hasura-cli iterm2 slack];
 
     sessionVariables = {EDITOR = "nvim";};
 
