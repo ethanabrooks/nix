@@ -5,6 +5,7 @@
   ...
 }: let
   ifDarwin = pkgs.lib.lists.optionals pkgs.stdenv.isDarwin;
+  ifLinux = pkgs.lib.lists.optionals pkgs.stdenv.isLinux;
 in {
   fonts.fontconfig.enable = true;
 
