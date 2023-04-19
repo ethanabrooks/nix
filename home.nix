@@ -31,8 +31,6 @@ in {
       ]
       ++ ifDarwin [hasura-cli iterm2 slack];
 
-    sessionVariables = {EDITOR = "nvim";};
-
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
@@ -138,6 +136,8 @@ in {
     localVariables = {
       TERM = "xterm-256color";
       DOCKER_BUILDKIT = 1;
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
   };
 }
