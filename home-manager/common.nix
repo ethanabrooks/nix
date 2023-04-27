@@ -3,36 +3,26 @@
   pkgs,
   lib,
   ...
-}: let
-  ifDarwin = pkgs.lib.lists.optionals pkgs.stdenv.isDarwin;
-  ifLinux = pkgs.lib.lists.optionals pkgs.stdenv.isLinux;
-in {
+}: {
   fonts.fontconfig.enable = true;
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) ["vscode" "slack"];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    homeDirectory = "/home/ethanbro";
-
     # Packages that should be installed to the user profile.
-    packages = with pkgs;
-      [
-        alejandra
-        htop
-        mosh
-        ncdu
-        nix
-        nixFlakes
-        nodejs
-        poetry
-        python39
-        ripgrep
-        tree
-      ]
-      ++ ifDarwin [hasura-cli iterm2 slack];
+    packages = with pkgs; [
+      alejandra
+      htop
+      mosh
+      ncdu
+      nix
+      nixFlakes
+      nodejs
+      poetry
+      python39
+      ripgrep
+      tree
+    ];
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -107,8 +97,6 @@ in {
     extraConfig = builtins.readFile ./tmux.conf;
     historyLimit = 10000;
   };
-
-  programs.vscode = {enable = pkgs.stdenv.isDarwin;};
 
   programs.zsh = {
     autocd = true;
