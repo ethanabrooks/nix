@@ -22,6 +22,7 @@
       python39
       ripgrep
       tree
+      tealdeer
     ];
 
     # This value determines the Home Manager release that your
