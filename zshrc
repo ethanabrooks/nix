@@ -1,9 +1,0 @@
-
-function chpwd() {
-	rm -rf "$HOME/.lastdir"
-	echo $PWD > "$HOME/.lastdir"
-}
-
-if [ -f ~/.lastdir ]; then
-	cd $(cat "$HOME/.lastdir")
-fi
