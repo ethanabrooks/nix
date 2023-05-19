@@ -75,7 +75,6 @@
     vimAlias = true;
     extraConfig = builtins.readFile ./vimrc;
     plugins = with pkgs.vimPlugins; [
-      #ale
       copilot-vim
       fzf-vim
       nerdcommenter
