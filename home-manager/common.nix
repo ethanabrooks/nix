@@ -88,6 +88,7 @@
       vim-nix
       vim-python-pep8-indent
       vim-surround
+      vim-oscyank
     ];
     withNodeJs = true;
   };
