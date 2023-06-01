@@ -73,22 +73,34 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    extraConfig = builtins.readFile ./vimrc;
+    # extraLuaConfig = builtins.readFile ./init.lua;
     plugins = with pkgs.vimPlugins; [
-      copilot-vim
-      fzf-vim
-      nerdcommenter
-      null-ls-nvim
-      nvim-lspconfig
-      oceanic-next
-      python-syntax
-      lightline-vim
-      supertab
-      vim-cute-python
-      vim-nix
-      vim-python-pep8-indent
-      vim-surround
-      vim-oscyank
+    {   
+  plugin = nvim-treesitter.withAllGrammars;
+  type = "lua";
+  config = builtins.readFile(./treesitter-config.lua);
+}
+    {   
+  plugin = nvim-lspconfig;
+  type = "lua";
+  config = builtins.readFile(./nvim-lspconfig.lua);
+}
+null-ls-nvim
+cmp-nvim-lsp
+      # copilot-vim
+      # fzf-vim
+      # nerdcommenter
+      # null-ls-nvim
+      # nvim-lspconfig
+      # oceanic-next
+      # python-syntax
+      # lightline-vim
+      # supertab
+      # vim-cute-python
+      # vim-nix
+      # vim-python-pep8-indent
+      # vim-surround
+      # vim-oscyank
     ];
     withNodeJs = true;
   };
