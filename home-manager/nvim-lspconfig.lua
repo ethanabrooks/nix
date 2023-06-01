@@ -28,14 +28,13 @@ local config = function()
 
   -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
   local servers = {
-    --"rnix",
-    --"jsonls",
-    --"julials",
-    --"texlab",
-    --"dockerls",
-    --"html",
-    --"cssls",
-    --"eslint",
+    "rnix",
+    "jsonls",
+    "texlab",
+    "dockerls",
+    "html",
+    "cssls",
+    "eslint",
   }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
@@ -57,34 +56,34 @@ local config = function()
   --  root_dir = lspconfig.util.root_pattern("package.json"),
   --})
 
-  --lspconfig.lua_ls.setup {
-  --  capabilities = capabilities,
-  --  on_attach = on_attach,
-  --  settings = {
-  --    Lua = {
-  --      runtime = {
-  --        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-  --        version = "LuaJIT",
-  --      },
-  --      diagnostics = {
-  --        -- Get the language server to recognize the `vim` global
-  --        globals = { "vim" },
-  --      },
-  --      workspace = {
-  --        -- Make the server aware of Neovim runtime files
-  --        library = vim.api.nvim_get_runtime_file("", true),
-  --      },
-  --      telemetry = { enable = false },
-  --      format = {
-  --        enable = true,
-  --        defaultConfig = {
-  --          indent_style = "space",
-  --          indent_size = "2",
-  --        }
-  --      }
-  --    },
-  --  },
-  --}
+  lspconfig.lua_ls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = { "vim" },
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = { enable = false },
+        format = {
+          enable = true,
+          defaultConfig = {
+            indent_style = "space",
+            indent_size = "2",
+          }
+        }
+      },
+    },
+  }
 
   vim.g.markdown_fenced_languages = { "ts=typescript" }
 
@@ -108,8 +107,8 @@ local null_ls_config = function()
       -- null_ls.builtins.code_actions.shellcheck,
       -- null_ls.builtins.formatting.shfmt,
 
-      -- -- python
-      -- null_ls.builtins.formatting.black,
+      -- python
+      null_ls.builtins.formatting.black,
       -- -- null_ls.builtins.formatting.ruff,
       -- -- null_ls.builtins.diagnostics.ruff,
 

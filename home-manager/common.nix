@@ -23,6 +23,7 @@
       ripgrep
       tree
       tealdeer
+      lua-language-server
     ];
 
     # This value determines the Home Manager release that your
@@ -73,7 +74,16 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    extraLuaConfig = ''
+      vim.g.mapleader = ' '
+      vim.g.maplocalleader = ' '
+    '';
     plugins = with pkgs.vimPlugins; [
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = builtins.readFile ./mappings.lua;
+      }
       {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
@@ -84,14 +94,24 @@
         type = "lua";
         config = builtins.readFile ./nvim-lspconfig.lua;
       }
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./telescope.lua;
+      }
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./cmp.lua;
+      }
+      # {
+      #   plugin = mini-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./mini-nvim.lua;
+      # }
       null-ls-nvim
       cmp-nvim-lsp
-      nvim-cmp
-      # {
-      #   plugin = lualine-nvim;
-      #   type = "lua";
-      #   config = builtins.readFile ./lu.lua;
-      # }
+      cmp-buffer
       # copilot-vim
       # fzf-vim
       # nerdcommenter
