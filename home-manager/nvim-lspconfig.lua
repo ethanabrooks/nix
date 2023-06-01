@@ -114,7 +114,7 @@ local null_ls_config = function()
       -- -- null_ls.builtins.diagnostics.ruff,
 
       -- -- nix
-      -- null_ls.builtins.formatting.alejandra,
+      null_ls.builtins.formatting.alejandra,
       -- null_ls.builtins.diagnostics.statix,
       -- null_ls.builtins.code_actions.statix,
 

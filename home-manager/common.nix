@@ -73,20 +73,25 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    # extraLuaConfig = builtins.readFile ./init.lua;
     plugins = with pkgs.vimPlugins; [
-    {   
-  plugin = nvim-treesitter.withAllGrammars;
-  type = "lua";
-  config = builtins.readFile(./treesitter-config.lua);
-}
-    {   
-  plugin = nvim-lspconfig;
-  type = "lua";
-  config = builtins.readFile(./nvim-lspconfig.lua);
-}
-null-ls-nvim
-cmp-nvim-lsp
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = builtins.readFile ./treesitter-config.lua;
+      }
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile ./nvim-lspconfig.lua;
+      }
+      null-ls-nvim
+      cmp-nvim-lsp
+      nvim-cmp
+      # {
+      #   plugin = lualine-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./lu.lua;
+      # }
       # copilot-vim
       # fzf-vim
       # nerdcommenter
