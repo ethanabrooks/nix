@@ -104,11 +104,11 @@
         type = "lua";
         config = builtins.readFile ./cmp.lua;
       }
-      # {
-      #   plugin = mini-nvim;
-      #   type = "lua";
-      #   config = builtins.readFile ./mini-nvim.lua;
-      # }
+      {
+        plugin = mini-nvim;
+        type = "lua";
+        config = builtins.readFile ./mini-nvim.lua;
+      }
       null-ls-nvim
       cmp-nvim-lsp
       cmp-buffer
