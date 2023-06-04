@@ -111,7 +111,6 @@
       null-ls-nvim
       cmp-nvim-lsp
       cmp-buffer
-      vim-devicons
       oceanic-next
       copilot-vim
       # fzf-vim
