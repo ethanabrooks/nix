@@ -27,7 +27,11 @@ local config = function()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "buffer" },
-		}
+		},
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
 	})
 end
 
