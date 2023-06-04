@@ -74,10 +74,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    extraLuaConfig = ''
-      vim.g.mapleader = ' '
-      vim.g.maplocalleader = ' '
-    '';
+    extraLuaConfig = builtins.readFile ./init.lua;
     plugins = with pkgs.vimPlugins; [
       {
         plugin = which-key-nvim;
