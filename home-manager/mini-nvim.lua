@@ -1,6 +1,8 @@
 local config = function()
 	-- Enhanced textobjects and pairs
 	require("mini.ai").setup()
+	require("mini.animate").setup()
+	-- require("mini.basics").setup()
 	require("mini.comment").setup()
 	-- Move selected text around
 	require("mini.move").setup()
