@@ -82,12 +82,12 @@
       {
         plugin = which-key-nvim;
         type = "lua";
-        config = builtins.readFile ./mappings.lua;
+        config = builtins.readFile ./which-key-nvim.lua;
       }
       {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
-        config = builtins.readFile ./treesitter-config.lua;
+        config = builtins.readFile ./nvim-treesitter.lua;
       }
       {
         plugin = nvim-lspconfig;
