@@ -1,32 +1,5 @@
 local config = function()
 	local cmp = require("cmp")
-	local kind_icons = {
-		Text = "",
-		Method = "󰆧",
-		Function = "",
-		Constructor = "",
-		Field = "󰇽",
-		Variable = "󰂡",
-		Class = "󰠱",
-		Interface = "",
-		Module = "",
-		Property = "󰜢",
-		Unit = "",
-		Value = "󰎠",
-		Enum = "",
-		Keyword = "󰌋",
-		Snippet = "",
-		Color = "󰏘",
-		File = "󰈙",
-		Reference = "",
-		Folder = "󰉋",
-		EnumMember = "",
-		Constant = "󰏿",
-		Struct = "",
-		Event = "",
-		Operator = "󰆕",
-		TypeParameter = "󰅲",
-	}
 	cmp.setup({
 		mapping = {
 			["<C-j>"] = cmp.mapping(
@@ -48,27 +21,13 @@ local config = function()
 			-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		},
-		formatting = {
-			format = function(entry, vim_item)
-				vim_item.kind = kind_icons[vim_item.kind]
-				return vim_item
-			end
-		},
 		experimental = {
 			ghost_text = true,
 		},
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "buffer" },
-		},
-		window = {
-			completion = cmp.config.window.bordered({
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-			}),
-			documentation = cmp.config.window.bordered({
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-			}),
-		},
+		}
 	})
 end
 
