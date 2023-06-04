@@ -79,6 +79,16 @@
     extraLuaConfig = builtins.readFile ./init.lua;
     plugins = with pkgs.vimPlugins; [
       {
+        plugin = copilot-lua;
+        type = "lua";
+        config = builtins.readFile ./copilot-lua.lua;
+      }
+      {
+        plugin = copilot-cmp;
+        type = "lua";
+        config = ''require ("copilot_cmp").setup ()'';
+      }
+      {
         plugin = which-key-nvim;
         type = "lua";
         config = builtins.readFile ./which-key-nvim.lua;
@@ -108,11 +118,16 @@
         type = "lua";
         config = builtins.readFile ./mini-nvim.lua;
       }
+      #     {
+      #       plugin = vim-slime;
+      #       type = "lua";
+      #       config = builtins.readFile ./vim-slime.lua;
+      #     }
       null-ls-nvim
       cmp-nvim-lsp
       cmp-buffer
       oceanic-next
-      copilot-vim
+
       # fzf-vim
       # nerdcommenter
       # null-ls-nvim

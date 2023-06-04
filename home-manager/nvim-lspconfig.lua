@@ -66,6 +66,7 @@ local config = function()
 				workspace = {
 					-- Make the server aware of Neovim runtime files
 					library = vim.api.nvim_get_runtime_file("", true),
+					checkThirdParty = false,
 				},
 				telemetry = { enable = false },
 				format = {
@@ -78,6 +79,7 @@ local config = function()
 			},
 		},
 	}
+
 
 	vim.g.markdown_fenced_languages = { "ts=typescript" }
 
