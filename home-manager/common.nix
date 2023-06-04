@@ -113,7 +113,7 @@
       cmp-buffer
       vim-devicons
       oceanic-next
-      # copilot-vim
+      copilot-vim
       # fzf-vim
       # nerdcommenter
       # null-ls-nvim
