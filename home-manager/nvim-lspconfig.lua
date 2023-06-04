@@ -35,6 +35,7 @@ local config = function()
 		"html",
 		"cssls",
 		"eslint",
+		"pyright"
 	}
 	for _, lsp in ipairs(servers) do
 		lspconfig[lsp].setup({
@@ -42,13 +43,6 @@ local config = function()
 			on_attach = on_attach,
 		})
 	end
-	lspconfig.pyright.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			python = { analysis = { autoImportCompletions = false } }
-		}
-	})
 
 	lspconfig.lua_ls.setup {
 		capabilities = capabilities,
