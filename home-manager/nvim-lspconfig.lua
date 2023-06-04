@@ -49,12 +49,6 @@ local config = function()
 			python = { analysis = { autoImportCompletions = false } }
 		}
 	})
-	--
-	--lspconfig.tsserver.setup({
-	--  capabilities = capabilities,
-	--  on_attach = on_attach,
-	--  root_dir = lspconfig.util.root_pattern("package.json"),
-	--})
 
 	lspconfig.lua_ls.setup {
 		capabilities = capabilities,
