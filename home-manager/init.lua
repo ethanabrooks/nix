@@ -8,4 +8,5 @@ local map = function(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 map("", "<Leader>w", ":w<cr>")
+vim.cmd([[colorscheme OceanicNext]])
 vim.opt.swapfile = false
