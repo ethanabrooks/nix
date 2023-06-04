@@ -24,6 +24,8 @@
       tree
       tealdeer
       lua-language-server
+      nodePackages.pyright
+      rnix-lsp
     ];
 
     # This value determines the Home Manager release that your

@@ -42,14 +42,14 @@ local config = function()
 			on_attach = on_attach,
 		})
 	end
-	--lspconfig.pyright.setup({
-	--  capabilities = capabilities,
-	--  on_attach = on_attach,
-	--  settings = {
-	--    python = { analysis = { autoImportCompletions = false } }
-	--  }
-	--})
-
+	lspconfig.pyright.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			python = { analysis = { autoImportCompletions = false } }
+		}
+	})
+	--
 	--lspconfig.tsserver.setup({
 	--  capabilities = capabilities,
 	--  on_attach = on_attach,
