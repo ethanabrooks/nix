@@ -8,8 +8,9 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 -- Unbind the default commands for space and return.
-map("", " ", "<NOP>")
-map("", "<cr>", "<NOP>")
+-- map("", " ", "<NOP>")
+-- map("", "<cr>", "<NOP>")
+map("n", "<Leader>w", ":w<cr>")
 
 -- Yank to end of line
 map("n", "Y", "y$")

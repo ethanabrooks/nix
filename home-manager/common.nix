@@ -112,6 +112,7 @@
       null-ls-nvim
       cmp-nvim-lsp
       cmp-buffer
+      vim-devicons
       # copilot-vim
       # fzf-vim
       # nerdcommenter
