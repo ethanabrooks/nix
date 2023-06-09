@@ -38,7 +38,7 @@
     # changes in each release.
     stateVersion = "23.05";
 
-    username = "ethanbro";
+    username = "ethan";
   };
 
   programs.direnv = {
@@ -168,7 +168,8 @@
     };
     shellAliases = {
       ll = "ls -l";
-      update = "home-manager --flake .#ethanbro@ethanbro switch -b backup";
+      update-darwin = "home-manager --flake '.#darwin' switch -b backup";
+      update-linux = "home-manager --flake '.#linux' switch -b backup";
     };
     localVariables = {
       TERM = "xterm-256color";
