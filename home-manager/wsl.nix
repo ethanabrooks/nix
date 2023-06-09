@@ -6,10 +6,7 @@
 }: {
   imports = [./common.nix];
 
-  home = {
-    homeDirectory = "/home/ethanbro";
-    username = "ethanbro";
-  };
+  home.homeDirectory = "/home/ethan";
 
   services.gpg-agent = {
     enable = true;
