@@ -59,7 +59,7 @@
     userEmail = "ethanabrooks@gmail.com";
     extraConfig.core.editor = "vim";
     aliases = {
-      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      lg = "log --oneline";
       br = "branch";
       co = "checkout";
       cm = "commit -am";
@@ -81,7 +81,7 @@
       {
         plugin = copilot-lua;
         type = "lua";
-        config = builtins.readFile ./copilot-lua.lua;
+        config = builtins.readFile ./copilot.lua;
       }
       {
         plugin = copilot-cmp;
