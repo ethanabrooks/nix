@@ -37,8 +37,6 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "23.05";
-
-    username = "ethan";
   };
 
   programs.direnv = {

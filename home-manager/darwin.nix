@@ -12,6 +12,8 @@
   home = {
     homeDirectory = "/Users/ethan";
 
+    username = "ethan";
+
     packages = with pkgs; [hasura-cli iterm2 slack];
   };
 
