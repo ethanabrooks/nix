@@ -26,6 +26,8 @@
       lua-language-server
       nodePackages.pyright
       rnix-lsp
+      yarn
+      yarn2nix
     ];
 
     # This value determines the Home Manager release that your
