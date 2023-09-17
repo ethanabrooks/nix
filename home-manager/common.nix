@@ -152,7 +152,7 @@
   programs.zsh = {
     autocd = true;
     enable = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     initExtra = builtins.readFile ./zshrc;
     oh-my-zsh = {
