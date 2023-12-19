@@ -13,17 +13,18 @@
     packages = with pkgs; [
       alejandra
       htop
+      lua-language-server
       ncdu
       nix
       nixFlakes
       nodejs
+      nodePackages.pyright
       poetry
       python39
       ripgrep
-      tree
-      lua-language-server
-      nodePackages.pyright
       rnix-lsp
+      tree
+      yarn
     ];
 
     # This value determines the Home Manager release that your

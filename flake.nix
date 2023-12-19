@@ -18,6 +18,10 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [./home-manager/linux.nix];
       };
+      darwin = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+        modules = [./home-manager/darwin.nix];
+      };
     };
   };
 }

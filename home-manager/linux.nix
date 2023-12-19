@@ -9,7 +9,6 @@
   home = {
     homeDirectory = "/home/ethanbro";
     username = "ethanbro";
-    packages = with pkgs; [yarn];
   };
 
   services.gpg-agent = {
