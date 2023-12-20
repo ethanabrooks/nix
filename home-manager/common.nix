@@ -87,6 +87,12 @@
     historyLimit = 10000;
   };
 
+  programs.wezterm = {
+    enable = true;
+    enableZshIntegration = true;
+    extraConfig = builtins.readFile ./wezterm.lua;
+  };
+
   programs.zsh = {
     autocd = true;
     enable = true;
