@@ -105,6 +105,7 @@
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
       ll = "ls -l";
+      ls = "ls --color=auto";
       update-darwin = "home-manager --flake '.#darwin' switch -b backup";
       update-linux = "home-manager --flake '.#linux' switch -b backup";
     };
