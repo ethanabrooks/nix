@@ -44,18 +44,7 @@ config = {
         key = 'l',
         mods = 'CMD',
         action = wezterm.action.ActivatePaneDirection "Right"
-    }},
-    ssh_domains = {{
-        -- This name identifies the domain
-        name = 'rldl17',
-        -- The hostname or address to connect to. Will be used to match settings
-        -- from your ssh config file
-        remote_address = 'rldl17.eecs.umich.edu',
-        -- The username to use on the remote host
-        username = 'ethanbro',
-        remote_wezterm_path = '/home/ethanbro/.nix-profile/bin/wezterm'
     }}
-
 }
 
 -- and finally, return the configuration to wezterm
