@@ -98,16 +98,11 @@
     enable = true;
     syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
+    initExtraFirst = ''
+      source ${pkgs.pure-prompt}/share/zsh/site-functions/async
+      source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
+    '';
     initExtra = builtins.readFile ./zshrc;
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git"];
-    };
-    prezto = {
-      editor.keymap = "vi";
-      enable = true;
-      prompt.theme = "pure";
-    };
     shellAliases = {
       ll = "ls -l";
       update-darwin = "home-manager --flake '.#darwin' switch -b backup";
