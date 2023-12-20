@@ -23,6 +23,7 @@
       python39
       ripgrep
       rnix-lsp
+      speedtest-cli
       tree
       yarn
     ];
