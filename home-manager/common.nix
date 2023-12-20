@@ -12,7 +12,6 @@
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       alejandra
-      coreutils
       htop
       lua-language-server
       ncdu
@@ -37,6 +36,11 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "23.05";
+  };
+
+  programs.dircolors = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.direnv = {
