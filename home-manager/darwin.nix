@@ -9,5 +9,8 @@
   home = {
     homeDirectory = "/Users/ethan";
     username = "ethan";
+    packages = with pkgs; [
+      coreutils
+    ];
   };
 }
