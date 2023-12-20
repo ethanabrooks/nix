@@ -14,7 +14,7 @@ end
 
 -- For example, changing the color scheme:
 config = {
-    color_scheme = 'Oceanic-Next',
+    color_scheme = 'DimmedMonokai',
     font_size = 20,
     keys = {{
         key = 'Enter',
