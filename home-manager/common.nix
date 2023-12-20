@@ -38,11 +38,6 @@
     stateVersion = "23.05";
   };
 
-  programs.dircolors = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
@@ -66,7 +61,6 @@
       co = "checkout";
       df = "!git reset && git diff";
       lg = "log --oneline";
-      ls = "ls --color=auto";
     };
   };
 
