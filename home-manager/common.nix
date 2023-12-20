@@ -66,6 +66,7 @@
       co = "checkout";
       df = "!git reset && git diff";
       lg = "log --oneline";
+      ls = "ls --color=auto";
     };
   };
 
