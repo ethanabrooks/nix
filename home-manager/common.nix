@@ -61,11 +61,11 @@
     userEmail = "ethanabrooks@gmail.com";
     extraConfig.core.editor = "vim";
     aliases = {
-      lg = "log --oneline";
       br = "branch";
-      co = "checkout";
       cm = "commit -am";
+      co = "checkout";
       df = "!git reset && git diff";
+      lg = "log --oneline";
     };
   };
 
