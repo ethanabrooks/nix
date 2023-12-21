@@ -34,5 +34,20 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<C-c>:w<CR>', {
     silent = true
 })
 
+
 vim.cmd([[colorscheme OceanicNext]])
 vim.opt.swapfile = false
+
+-- Recognize typ files
+vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+    pattern = "*.typ",
+    command = "set filetype=typ"
+})
+
+-- Treat a-b as a single word in .typ files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "typ",
+    callback = function()
+        vim.opt_local.iskeyword:append("-")
+    end,
+})
