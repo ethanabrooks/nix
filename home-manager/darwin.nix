@@ -10,6 +10,7 @@
     homeDirectory = "/Users/ethan";
     username = "ethan";
     packages = with pkgs; [
+      awscli2
       coreutils
     ];
   };
