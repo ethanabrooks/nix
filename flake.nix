@@ -14,13 +14,17 @@
     ...
   } @ inputs: {
     homeConfigurations = {
-      linux = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./home-manager/linux.nix];
-      };
-      darwin = home-manager.lib.homeManagerConfiguration {
+      macbook = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-        modules = [./home-manager/darwin.nix];
+        modules = [./home-manager/macbook.nix];
+      };
+      gcloud = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [./home-manager/gcloud.nix];
+      };
+      rldl = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [./home-manager/rldl.nix];
       };
     };
   };
