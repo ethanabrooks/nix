@@ -21,7 +21,7 @@
       nodejs
       nodePackages.pyright
       poetry
-      python39
+      python312
       ripgrep
       rnix-lsp
       speedtest-cli
