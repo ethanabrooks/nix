@@ -24,7 +24,6 @@
       ripgrep
       rnix-lsp
       speedtest-cli
-      svn
       tree
       yarn
     ];
