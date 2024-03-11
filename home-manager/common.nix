@@ -12,6 +12,7 @@
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       alejandra
+      google-cloud-sdk
       htop
       lua-language-server
       ncdu
