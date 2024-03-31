@@ -18,7 +18,7 @@
       ncdu
       nix
       nixFlakes
-      nodejs_20
+      nodejs_21
       nodePackages.pyright
       poetry
       python312

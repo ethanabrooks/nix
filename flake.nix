@@ -2,8 +2,8 @@
   description = "Minimal nix config for Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/";
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs.url = "github:nixos/nixpkgs/d479580285ed54b392f718c23a2d0cbfd303b62b";
+    home-manager.url = "github:nix-community/home-manager/b3acf1dc78b38a2fe03b287fead44d7ad25ac7c5";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
