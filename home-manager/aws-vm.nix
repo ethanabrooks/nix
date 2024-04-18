@@ -7,8 +7,8 @@
   imports = [./common.nix];
 
   home = {
-    homeDirectory = "/home/ethan";
-    username = "ethan";
+    homeDirectory = "/home/ec2-user";
+    username = "ec2-user";
     packages = with pkgs; [
       gdown
     ];

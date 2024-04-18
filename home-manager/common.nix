@@ -20,6 +20,7 @@
       nixFlakes
       nodejs_21
       nodePackages.pyright
+      ntp
       poetry
       python312
       ripgrep
@@ -66,7 +67,7 @@
       br = "branch";
       cm = "commit -am";
       co = "checkout";
-      df = "!git reset && git diff";
+      df = "diff";
       lg = "log --oneline";
     };
   };

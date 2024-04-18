@@ -18,9 +18,9 @@
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         modules = [./home-manager/macbook.nix];
       };
-      gcloud = home-manager.lib.homeManagerConfiguration {
+      aws-vm = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./home-manager/gcloud.nix];
+        modules = [./home-manager/aws-vm.nix];
       };
       rldl = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
