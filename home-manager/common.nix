@@ -16,10 +16,7 @@
       htop
       lua-language-server
       ncdu
-      nix
-      nixFlakes
       nodejs_21
-      nodePackages.pyright
       ntp
       poetry
       python312

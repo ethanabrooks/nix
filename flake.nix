@@ -18,9 +18,9 @@
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         modules = [./home-manager/macbook.nix];
       };
-      aws-vm = home-manager.lib.homeManagerConfiguration {
+      torchtune = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./home-manager/aws-vm.nix];
+        modules = [./home-manager/torchtune.nix];
       };
       rldl = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
