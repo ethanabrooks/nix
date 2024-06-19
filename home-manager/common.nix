@@ -25,6 +25,7 @@
       speedtest-cli
       tree
       yarn
+      magic-wormhole
     ];
 
     # This value determines the Home Manager release that your
