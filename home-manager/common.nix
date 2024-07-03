@@ -16,6 +16,7 @@
       google-cloud-sdk
       htop
       lua-language-server
+      magic-wormhole
       ncdu
       nodejs_21
       ntp
@@ -26,7 +27,6 @@
       speedtest-cli
       tree
       yarn
-      magic-wormhole
     ];
 
     # This value determines the Home Manager release that your

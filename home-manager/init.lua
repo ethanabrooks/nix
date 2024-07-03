@@ -35,7 +35,6 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<C-c>:w<CR>', {
 })
 
 
-vim.cmd([[colorscheme OceanicNext]])
 vim.opt.swapfile = false
 
 -- Recognize typ files
