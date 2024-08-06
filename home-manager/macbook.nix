@@ -30,4 +30,10 @@
     shellIntegration.enableZshIntegration = true;
     theme = "Dimmed Monokai";
   };
+
+  programs.zsh.initExtraFirst = ''
+      export PATH=/Users/ethan/.local/bin/:$PATH
+      source ${pkgs.pure-prompt}/share/zsh/site-functions/async
+      source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
+  '';
 }
