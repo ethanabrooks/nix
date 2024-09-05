@@ -1,2 +1,2 @@
 set -o vi  # vim keybindings
-export PATH=$PATH:/home/ethan/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/google-cloud-sdk/bin

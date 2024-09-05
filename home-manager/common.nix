@@ -13,7 +13,6 @@
     packages = with pkgs; [
       alejandra
       gh
-      google-cloud-sdk
       htop
       lua-language-server
       magic-wormhole
