@@ -20,7 +20,6 @@
       nodejs_21
       ntp
       poetry
-      python312
       ripgrep
       rnix-lsp
       speedtest-cli
