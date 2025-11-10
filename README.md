@@ -15,6 +15,27 @@ Minimal, idiomatic Nix flake configuration for macOS using home-manager.
 
 ## Initial Setup (First Time)
 
+### Automated Setup (Recommended)
+
+After installing Nix, simply run:
+
+```bash
+cd ~/nix  # or wherever you cloned this repo
+./setup.sh
+```
+
+This script will:
+- Create the `~/.config/home-manager` symlink
+- Enable flakes in nix.conf
+- Update flake inputs to latest versions
+- Install and activate home-manager
+- Generate an SSH key if needed
+- Set up GitHub authentication
+- Upload your SSH key to GitHub
+- Convert Git remotes from HTTPS to SSH
+
+### Manual Setup
+
 1. **Restart your terminal** so `nix` command is available
 
 2. **Update flake inputs** (gets latest nixpkgs-unstable):
