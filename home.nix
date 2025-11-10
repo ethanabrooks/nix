@@ -14,6 +14,7 @@
 
       # CLI tools
       gh
+      google-cloud-sdk
       htop
       ncdu
       ripgrep
