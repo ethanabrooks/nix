@@ -1,0 +1,1 @@
+/Users/ethan/.config/home-manager/CLAUDE.md
