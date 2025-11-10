@@ -1,31 +1,18 @@
 {
-  description = "Minimal nix config for Home Manager";
+  description = "Ethan's minimal macOS nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/d479580285ed54b392f718c23a2d0cbfd303b62b";
-    home-manager.url = "github:nix-community/home-manager/b3acf1dc78b38a2fe03b287fead44d7ad25ac7c5";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: {
-    homeConfigurations = {
-      macbook = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-        modules = [./home-manager/macbook.nix];
-      };
-      torchtune = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./home-manager/torchtune.nix];
-      };
-      rldl = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./home-manager/rldl.nix];
-      };
+  outputs = { nixpkgs, home-manager, ... }: {
+    homeConfigurations.ethan = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+      modules = [ ./home.nix ];
     };
   };
 }
