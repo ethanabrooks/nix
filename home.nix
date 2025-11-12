@@ -20,6 +20,12 @@
       ripgrep
       speedtest-cli
       tree
+      uv
+
+      # Container tools
+      colima
+      docker
+      docker-compose
 
       # macOS-specific
       coreutils
