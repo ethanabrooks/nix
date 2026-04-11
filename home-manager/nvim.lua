@@ -94,6 +94,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>d", builtin.diagnostics, vim.tbl_extend("force", opts, { desc = "Diagnostics" }))
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("force", opts, { desc = "Prev diagnostic" }))
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("force", opts, { desc = "Next diagnostic" }))
+    vim.keymap.set("n", "<leader>yd", function()
+      local d = vim.diagnostic.get(0, { lnum = vim.api.nvim_win_get_cursor(0)[1] - 1 })
+      if #d > 0 then
+        vim.fn.setreg("+", d[1].message)
+        vim.notify("Copied diagnostic")
+      end
+    end, vim.tbl_extend("force", opts, { desc = "Yank diagnostic to clipboard" }))
   end,
 })
 
