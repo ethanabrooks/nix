@@ -22,6 +22,22 @@ vim.opt.undofile = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false -- lualine shows mode
 
+-- Save (format + write current buffer)
+vim.keymap.set("n", "<leader>w", function()
+  require("conform").format({ timeout_ms = 1000, lsp_format = "fallback" }, function()
+    vim.cmd("write")
+  end)
+end, { desc = "Save" })
+
+-- Auto-save when leaving insert mode or switching buffers
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave", "FocusLost" }, {
+  callback = function()
+    if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
+      vim.cmd("write")
+    end
+  end,
+})
+
 -- Theme
 vim.o.background = "light"
 vim.cmd.colorscheme("NeoSolarized")
@@ -113,6 +129,25 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
   }),
+})
+
+-- Format on save
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "ruff_format" },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    typescript = { "prettierd", "prettier", stop_after_first = true },
+    json = { "prettierd", "prettier", stop_after_first = true },
+    yaml = { "prettierd", "prettier", stop_after_first = true },
+    markdown = { "prettierd", "prettier", stop_after_first = true },
+    nix = { "nixfmt" },
+    rust = { "rustfmt" },
+  },
+  format_on_save = {
+    timeout_ms = 1000,
+    lsp_format = "fallback",
+  },
 })
 
 -- Git signs

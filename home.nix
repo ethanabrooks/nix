@@ -106,6 +106,9 @@
       # Git
       gitsigns-nvim
 
+      # Formatting
+      conform-nvim
+
       # Quality of life
       nvim-autopairs
       comment-nvim
