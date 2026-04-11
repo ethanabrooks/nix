@@ -77,6 +77,43 @@
     extraConfig = ''
       set clipboard=unnamedplus
     '';
+    plugins = with pkgs.vimPlugins; [
+      # Theme
+      NeoSolarized
+
+      # Syntax
+      nvim-treesitter.withAllGrammars
+
+      # Navigation
+      telescope-nvim
+      telescope-fzf-native-nvim
+      plenary-nvim
+      neo-tree-nvim
+      nvim-web-devicons
+      nui-nvim
+
+      # LSP + Completion
+      nvim-lspconfig
+      mason-nvim
+      mason-lspconfig-nvim
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      luasnip
+      cmp_luasnip
+
+      # Git
+      gitsigns-nvim
+
+      # Quality of life
+      nvim-autopairs
+      comment-nvim
+      which-key-nvim
+      lualine-nvim
+      bufferline-nvim
+    ];
+    extraLuaConfig = builtins.readFile ./home-manager/nvim.lua;
   };
 
   # Tmux
