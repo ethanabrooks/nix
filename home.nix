@@ -25,6 +25,9 @@
       docker
       docker-compose
 
+      # Runtimes
+      nodejs
+
       # macOS-specific
       coreutils
     ];
