@@ -1,0 +1,177 @@
+{
+  "Profiles": [{
+    "Name": "VM",
+    "Guid": "vm-ethan-profile",
+    "Default Profile": "Yes",
+    "Custom Command": "Yes",
+    "Command": "ssh -t ethan 'cd /home/ethan/olympus && tmux -CC new-session -A -s main'",
+    "Foreground Color": {
+      "Red Component": 0.396,
+      "Green Component": 0.482,
+      "Blue Component": 0.514,
+      "Color Space": "sRGB"
+    },
+    "Background Color": {
+      "Red Component": 0.992,
+      "Green Component": 0.965,
+      "Blue Component": 0.890,
+      "Color Space": "sRGB"
+    },
+    "Bold Color": {
+      "Red Component": 0.396,
+      "Green Component": 0.482,
+      "Blue Component": 0.514,
+      "Color Space": "sRGB"
+    },
+    "Cursor Color": {
+      "Red Component": 0.396,
+      "Green Component": 0.482,
+      "Blue Component": 0.514,
+      "Color Space": "sRGB"
+    },
+    "Cursor Text Color": {
+      "Red Component": 0.992,
+      "Green Component": 0.965,
+      "Blue Component": 0.890,
+      "Color Space": "sRGB"
+    },
+    "Selection Color": {
+      "Red Component": 0.933,
+      "Green Component": 0.910,
+      "Blue Component": 0.835,
+      "Color Space": "sRGB"
+    },
+    "Selected Text Color": {
+      "Red Component": 0.396,
+      "Green Component": 0.482,
+      "Blue Component": 0.514,
+      "Color Space": "sRGB"
+    },
+    "Ansi 0 Color": {
+      "Red Component": 0.028,
+      "Green Component": 0.169,
+      "Blue Component": 0.212,
+      "Color Space": "sRGB"
+    },
+    "Ansi 1 Color": {
+      "Red Component": 0.863,
+      "Green Component": 0.196,
+      "Blue Component": 0.184,
+      "Color Space": "sRGB"
+    },
+    "Ansi 2 Color": {
+      "Red Component": 0.522,
+      "Green Component": 0.600,
+      "Blue Component": 0.000,
+      "Color Space": "sRGB"
+    },
+    "Ansi 3 Color": {
+      "Red Component": 0.710,
+      "Green Component": 0.537,
+      "Blue Component": 0.000,
+      "Color Space": "sRGB"
+    },
+    "Ansi 4 Color": {
+      "Red Component": 0.149,
+      "Green Component": 0.545,
+      "Blue Component": 0.824,
+      "Color Space": "sRGB"
+    },
+    "Ansi 5 Color": {
+      "Red Component": 0.827,
+      "Green Component": 0.212,
+      "Blue Component": 0.510,
+      "Color Space": "sRGB"
+    },
+    "Ansi 6 Color": {
+      "Red Component": 0.165,
+      "Green Component": 0.631,
+      "Blue Component": 0.596,
+      "Color Space": "sRGB"
+    },
+    "Ansi 7 Color": {
+      "Red Component": 0.933,
+      "Green Component": 0.910,
+      "Blue Component": 0.835,
+      "Color Space": "sRGB"
+    },
+    "Ansi 8 Color": {
+      "Red Component": 0.000,
+      "Green Component": 0.169,
+      "Blue Component": 0.212,
+      "Color Space": "sRGB"
+    },
+    "Ansi 9 Color": {
+      "Red Component": 0.796,
+      "Green Component": 0.294,
+      "Blue Component": 0.086,
+      "Color Space": "sRGB"
+    },
+    "Ansi 10 Color": {
+      "Red Component": 0.576,
+      "Green Component": 0.631,
+      "Blue Component": 0.631,
+      "Color Space": "sRGB"
+    },
+    "Ansi 11 Color": {
+      "Red Component": 0.396,
+      "Green Component": 0.482,
+      "Blue Component": 0.514,
+      "Color Space": "sRGB"
+    },
+    "Ansi 12 Color": {
+      "Red Component": 0.514,
+      "Green Component": 0.580,
+      "Blue Component": 0.588,
+      "Color Space": "sRGB"
+    },
+    "Ansi 13 Color": {
+      "Red Component": 0.424,
+      "Green Component": 0.443,
+      "Blue Component": 0.769,
+      "Color Space": "sRGB"
+    },
+    "Ansi 14 Color": {
+      "Red Component": 0.576,
+      "Green Component": 0.631,
+      "Blue Component": 0.631,
+      "Color Space": "sRGB"
+    },
+    "Ansi 15 Color": {
+      "Red Component": 0.992,
+      "Green Component": 0.965,
+      "Blue Component": 0.890,
+      "Color Space": "sRGB"
+    },
+    "Silence Bell": false,
+    "Send Bell Alert": true,
+    "BM Growl": true,
+    "Flashing Bell": true,
+    "Triggers": [
+      {
+        "regex": "^Error:",
+        "action": "HighlightTrigger",
+        "parameter": {
+          "color": [1, 0, 0, 1]
+        }
+      },
+      {
+        "regex": "Waiting for your input",
+        "action": "GrowlTrigger",
+        "parameter": "Claude needs input"
+      }
+    ],
+    "Smart Selection Rules": [
+      {
+        "regex": "([\\w/.\\-]+\\.\\w+):(\\d+)",
+        "notes": "File path with line number",
+        "precision": "very_high"
+      },
+      {
+        "regex": "[0-9a-f]{7,40}",
+        "notes": "Git commit SHA",
+        "precision": "high"
+      }
+    ]
+  }]
+}
