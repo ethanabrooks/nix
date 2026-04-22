@@ -4,7 +4,8 @@
     "Guid": "vm-ethan-profile",
     "Default Profile": "Yes",
     "Custom Command": "Yes",
-    "Command": "ssh -t ethan 'cd /home/ethan/olympus && tmux -CC new-session -A -s main'",
+    "Command": "ssh -t ethan 'cd /home/ethan/olympus && tmux -u -CC new-session -A -s main'",
+    "Custom Directory": "Recycle",
     "Foreground Color": {
       "Red Component": 0.396,
       "Green Component": 0.482,

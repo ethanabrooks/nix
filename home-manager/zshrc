@@ -1,6 +1,12 @@
 # Vi keybindings
 set -o vi
 
+# Report CWD to terminal so iTerm2 splits inherit the directory
+__osc7_cwd() {
+  printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${PWD}"
+}
+precmd_functions+=(__osc7_cwd)
+
 # cc (Claude Code session manager) completion
 _cc() {
   local -a subcmds=(
