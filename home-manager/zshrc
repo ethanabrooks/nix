@@ -1,2 +1,25 @@
 # Vi keybindings
 set -o vi
+
+# cc (Claude Code session manager) completion
+_cc() {
+  local -a subcmds=(
+    'new:Create worktree + tmux session'
+    'ls:List sessions'
+    'pick:fzf session picker'
+    'kill:Kill a session'
+    'clean:Kill session + remove worktree'
+    'alerts:Show sessions needing attention'
+  )
+  if (( CURRENT == 2 )); then
+    _describe 'subcommand' subcmds
+    local -a sessions
+    sessions=(${(f)"$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep '^cc:' | sed 's/^cc://')"})
+    (( ${#sessions} )) && _describe 'session' sessions
+  elif (( CURRENT == 3 )) && [[ "${words[2]}" == (kill|clean) ]]; then
+    local -a sessions
+    sessions=(${(f)"$(tmux list-sessions -F '#{session_name}' 2>/dev/null | grep '^cc:' | sed 's/^cc://')"})
+    (( ${#sessions} )) && _describe 'session' sessions
+  fi
+}
+compdef _cc cc

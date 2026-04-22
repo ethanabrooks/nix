@@ -19,6 +19,7 @@
       speedtest-cli
       tree
       uv
+      wezterm
 
       # Container tools
       colima
@@ -137,6 +138,11 @@
     autosuggestion.enable = true;
 
     initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        export PATH=/Users/ethan/bin:/Users/ethan/.local/bin/:$PATH
+        source ${pkgs.pure-prompt}/share/zsh/site-functions/async
+        source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
+      '')
       (builtins.readFile ./home-manager/zshrc)
     ];
 
