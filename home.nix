@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 
+let
+  ccimgd = pkgs.callPackage ./packages/ccimgd.nix { };
+in
 {
   home = {
     username = "ethan";
@@ -11,6 +14,7 @@
       nixfmt-rfc-style
 
       # CLI tools
+      ccimgd
       gh
       pngpaste
       google-cloud-sdk
@@ -167,6 +171,21 @@
     enable = true;
     extraConfig = builtins.readFile ./home-manager/tmux.conf;
     historyLimit = 10000;
+  };
+
+  # Clipboard image daemon for Claude Code over SSH
+  launchd.agents.ccimgd = {
+    enable = true;
+    config = {
+      ProgramArguments = [ "${ccimgd}/bin/ccimgd" ];
+      EnvironmentVariables = {
+        PATH = "${pkgs.pngpaste}/bin:/usr/bin:/bin";
+      };
+      RunAtLoad = true;
+      KeepAlive = true;
+      StandardOutPath = "/tmp/ccimgd.log";
+      StandardErrorPath = "/tmp/ccimgd.log";
+    };
   };
 
   # Zsh
