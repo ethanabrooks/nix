@@ -12,6 +12,7 @@
 
       # CLI tools
       gh
+      pngpaste
       google-cloud-sdk
       htop
       ncdu

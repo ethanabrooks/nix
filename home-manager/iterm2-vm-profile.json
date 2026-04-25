@@ -1,4 +1,26 @@
 {
+  "Visual Bell": true,
+  "Silence Bell": false,
+  "Guid": "53893CC6-E854-4EF2-8919-63BF4992C21B",
+  "Window Type": 15,
+  "BM Growl": true,
+  "Command": "ethan",
+  "Custom Command": "SSH",
+  "Flashing Bell": false,
+  "Load Shell Integration Automatically": true,
+  "Name": "VM",
+  "Semantic History": {
+    "text": "/usr/local/bin/code --remote ssh-remote+ethan \\1",
+    "action": "raw command"
+  },
+  "Custom Directory": "Recycle",
+  "SSH": {
+    "environmentVariablesToCopy": [],
+    "filesToCopy": [],
+    "sshIntegration": true
+  },
+  "Use Separate Colors for Light and Dark Mode": true,
+  "Initial Text": "cd /home/ethan/olympus && tmux -u -CC new-session -A -s main",
   "Ansi 7 Color (Light)": {
     "Red Component": 0.7810397744178772,
     "Color Space": "sRGB",
@@ -90,7 +112,6 @@
     "Alpha Component": 1,
     "Green Component": 0.7695948481559753
   },
-  "Visual Bell": true,
   "Cursor Text Color": {
     "Red Component": 1,
     "Color Space": "sRGB",
@@ -133,8 +154,6 @@
     "Alpha Component": 1,
     "Green Component": 1
   },
-  "Silence Bell": false,
-  "Guid": "53893CC6-E854-4EF2-8919-63BF4992C21B",
   "Ansi 14 Color (Dark)": {
     "Red Component": 0.3759753108024597,
     "Color Space": "sRGB",
@@ -163,9 +182,6 @@
     "Alpha Component": 1,
     "Green Component": 0.7695948481559753
   },
-  "Window Type": 15,
-  "BM Growl": true,
-  "Command": "ethan",
   "Selected Text Color": {
     "Red Component": 0,
     "Color Space": "sRGB",
@@ -208,7 +224,6 @@
     "Alpha Component": 1,
     "Green Component": 0.06274509803921569
   },
-  "Custom Command": "SSH",
   "Background Color (Dark)": {
     "Red Component": 0.0806884765625,
     "Color Space": "sRGB",
@@ -230,7 +245,6 @@
     "Alpha Component": 1,
     "Green Component": 0.9926329255104065
   },
-  "Flashing Bell": false,
   "Ansi 13 Color (Dark)": {
     "Red Component": 0.8821563720703125,
     "Color Space": "sRGB",
@@ -266,7 +280,6 @@
     "Alpha Component": 1,
     "Green Component": 0.062745101749897
   },
-  "Load Shell Integration Automatically": true,
   "Ansi 7 Color (Dark)": {
     "Red Component": 0.7810397744178772,
     "Color Space": "sRGB",
@@ -281,7 +294,6 @@
     "Alpha Component": 1,
     "Green Component": 0.23660069704055786
   },
-  "Name": "VM",
   "Cursor Color (Dark)": {
     "Red Component": 0.9999763369560242,
     "Color Space": "sRGB",
@@ -380,17 +392,6 @@
     "Alpha Component": 1,
     "Green Component": 0.7742590308189392
   },
-  "Semantic History": {
-    "editor": "com.microsoft.VSCode",
-    "text": "co/usr/local/bin/code\n/usr/local/bin/code\n/usr/local/bin/code\n/usr/local/bin/code\n/usr/local/bin/code --remote ssh-remote+ethan \\1 ",
-    "action": "raw command"
-  },
-  "Custom Directory": "Recycle",
-  "SSH": {
-    "environmentVariablesToCopy": [],
-    "filesToCopy": [],
-    "sshIntegration": true
-  },
   "Ansi 6 Color (Light)": {
     "Red Component": 0,
     "Color Space": "sRGB",
@@ -454,7 +455,6 @@
     "Alpha Component": 1,
     "Green Component": 1
   },
-  "Use Separate Colors for Light and Dark Mode": true,
   "Background Color (Light)": {
     "Red Component": 0.98,
     "Color Space": "sRGB",
@@ -503,6 +503,5 @@
     "Blue Component": 0.11764705926179886,
     "Alpha Component": 1,
     "Green Component": 0.09803921729326248
-  },
-  "Initial Text": "cd /home/ethan/olympus && tmux -u -CC new-session -A -s main"
+  }
 }

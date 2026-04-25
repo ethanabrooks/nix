@@ -1,0 +1,6 @@
+#!/bin/sh
+if echo "$1" | grep -qE '^https?://'; then
+    open "$1"
+else
+    /usr/local/bin/code --remote ssh-remote+ethan "$1"
+fi
