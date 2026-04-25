@@ -56,6 +56,44 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$line_break$python$character";
+      directory.style = "blue";
+      character = {
+        success_symbol = "[❯](purple)";
+        error_symbol = "[❯](red)";
+        vimcmd_symbol = "[❮](green)";
+      };
+      git_branch = {
+        format = "[$branch]($style)";
+        style = "bright-black";
+      };
+      git_status = {
+        format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
+        style = "cyan";
+        conflicted = "​";
+        untracked = "​";
+        modified = "​";
+        staged = "​";
+        renamed = "​";
+        deleted = "​";
+        stashed = "≡";
+      };
+      git_state = {
+        format = "\\([$state( $progress_current/$progress_total)]($style)\\) ";
+        style = "bright-black";
+      };
+      cmd_duration = {
+        format = "[$duration]($style) ";
+        style = "yellow";
+      };
+      python = {
+        format = "[$virtualenv]($style) ";
+        style = "bright-black";
+        detect_extensions = [];
+        detect_files = [];
+      };
+    };
   };
 
   # Git
@@ -140,8 +178,6 @@
     initContent = lib.mkMerge [
       (lib.mkBefore ''
         export PATH=/Users/ethan/bin:/Users/ethan/.local/bin/:$PATH
-        source ${pkgs.pure-prompt}/share/zsh/site-functions/async
-        source ${pkgs.pure-prompt}/share/zsh/site-functions/prompt_pure_setup
       '')
       (builtins.readFile ./home-manager/zshrc)
     ];
